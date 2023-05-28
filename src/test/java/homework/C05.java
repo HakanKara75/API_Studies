@@ -1,8 +1,10 @@
 package homework;
 
 import base_urls.ReqresBaseUrl;
+import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
 import org.junit.Test;
+import org.testng.asserts.SoftAssert;
 import test_data.JsonPlaceHolderTestData;
 
 import java.util.HashMap;
@@ -43,24 +45,30 @@ public class C05 extends ReqresBaseUrl {
       */
 
         //set the url
-        spec.pathParams("first", "api", "second", "unknown", "third", 3);
+        spec.pathParams("first",  "unknown", "second", 3);
 
         // set the expected data
-        Map<String, Object> expectedData = new JsonPlaceHolderTestData().reqresexpectedDataMap(3, "true red", 2002, "#BF1932", "19-1664");
+
 
         //send the request and get the response
-        Response response =given(spec).get("{first}/{second}/{third}");
+        Response response =given(spec).get("{first}/{second}");
         response.prettyPrint();
 
         //do assertion
-        Map<String, Object> actualData = response.as(HashMap.class); //de serialization json to java
-        assertEquals(200, response.statusCode());
-        assertEquals("application/json; charset=utf-8", response.contentType());
-        assertEquals(expectedData.get("id"), actualData.get("id"));
-        assertEquals(expectedData.get("name"), actualData.get("name"));
-        assertEquals(expectedData.get("year"), actualData.get("year"));
-        assertEquals(expectedData.get("color"), actualData.get("color"));
-        assertEquals(expectedData.get("pantone_value"), actualData.get("pantone_value"));
+        SoftAssert softAssert = new SoftAssert();
+        JsonPath jsonPath = response.jsonPath();
+
+        softAssert.assertEquals(response.getStatusCode(),200);
+        softAssert.assertEquals(response.contentType(),"application/json; charset=utf-8");
+        softAssert.assertEquals(jsonPath.getInt("data.id"),3,"Id degeri dogru degil");
+        softAssert.assertEquals(jsonPath.getString("data.name"),"true red", "Name degeri dogru degil");
+        softAssert.assertEquals(jsonPath.getInt("data.year"),2002, "year degeri dogru degil");
+        softAssert.assertEquals(jsonPath.getString("data.color"),"#BF1932", "color degeri dogru degil");
+        softAssert.assertEquals(jsonPath.getString("data.pantone_value"),"19-1664", "pantone_value degeri dogru degil");
+        softAssert.assertEquals(jsonPath.getString("support.url"),"https://reqres.in/#support-heading", "url degeri dogru degil");
+        softAssert.assertEquals(jsonPath.getString("support.text"),"To keep ReqRes free, contributions towards server costs are appreciated!", "text degeri dogru degil");
+
+        softAssert.assertAll();
 
 
 

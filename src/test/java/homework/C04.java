@@ -1,13 +1,11 @@
 package homework;
 
 import base_urls.ReqresBaseUrl;
-import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 import org.junit.Test;
-
 import static io.restassured.RestAssured.given;
-import static org.hamcrest.Matchers.greaterThan;
-import static org.hamcrest.Matchers.hasSize;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 public class C04 extends ReqresBaseUrl {
 
@@ -35,8 +33,11 @@ public class C04 extends ReqresBaseUrl {
 
         //Send the request and get the response
         Response response = given(spec).get("{first}");
+        //Response response = given().spec(spec).when().get("/{first}" );
         response.prettyPrint();
 
-        response.then().statusCode(200).body("bookingid", hasSize(greaterThan(0)));
+        //do assertion
+        assertEquals(200,response.statusCode());
+        assertTrue(response.asString().contains("bookingid"));
     }
 }

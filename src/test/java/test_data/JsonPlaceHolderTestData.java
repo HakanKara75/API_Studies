@@ -32,4 +32,16 @@ public class JsonPlaceHolderTestData {
         bookingdatesMap.put("text", text);
         return bookingdatesMap;
     }
+
+    public Map<String, Object> usersexpectedDataMap(int id, String email, String firstname, String lastname, String avatar) {
+
+        Map<String, Object> expectedData = new HashMap<>(); //serialization java to json
+        expectedData.put("id", id );
+        expectedData.put("email", email);
+        expectedData.put("firstname", firstname);
+        expectedData.put("lastname", lastname);
+        expectedData.put("avatar", avatar);
+        System.out.println("expectedData"+ expectedData);
+        return expectedData;
+    }
  }

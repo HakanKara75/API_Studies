@@ -10,7 +10,10 @@ public class ReqresBaseUrl {
 
     @Before  //her @Test methodu oncesi calisir
     public void setup(){
-        spec =new RequestSpecBuilder().setContentType(ContentType.JSON).setAccept(ContentType.JSON).setBaseUri("https://reqres.in").build();
+        spec =new RequestSpecBuilder()
+                .setContentType(ContentType.JSON)
+                .setAccept(ContentType.JSON)
+                .setBaseUri("https://reqres.in/api").build();
 
 
     }
