@@ -1,14 +1,10 @@
-package homework;
+package homework.get1;
 
 import base_urls.ReqresBaseUrl;
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
 import org.junit.Test;
 import org.testng.asserts.SoftAssert;
-import test_data.JsonPlaceHolderTestData;
-
-import java.util.HashMap;
-import java.util.Map;
 
 import static io.restassured.RestAssured.given;
 import static org.testng.AssertJUnit.assertEquals;

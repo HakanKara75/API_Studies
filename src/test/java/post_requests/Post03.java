@@ -57,7 +57,7 @@ public class Post03 extends ReqresBaseUrl {
         expectedData.put("userStatus", 123);
 
         //send the request get the response
-        Response response = given(spec).contentType(ContentType.JSON).body(expectedData).post("/{first}");
+        Response response = given(spec).body(expectedData).post("/{first}");
         response.prettyPrint();
 
         //do assertion

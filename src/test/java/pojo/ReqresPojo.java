@@ -6,8 +6,10 @@ public class ReqresPojo {
 
 
     private String name;
-   private String Job;
 
+   private String Job;
+    private String userId;
+    private String title;
     public ReqresPojo() {
     }
 

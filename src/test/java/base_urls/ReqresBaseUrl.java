@@ -13,7 +13,7 @@ public class ReqresBaseUrl {
         spec =new RequestSpecBuilder()
                 .setContentType(ContentType.JSON)
                 .setAccept(ContentType.JSON)
-                .setBaseUri("https://petstore.swagger.io/v2").build();
+                .setBaseUri("https://petstore.swagger.io/v2/pet/findByStatus?status=available").build();
 
 
     }

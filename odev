@@ -1,4 +1,16 @@
-/*
-   "https://petstore.swagger.io/" dökümanını kullanarak 'user' oluşturacak bir otomasyon testi yazınız
-    Not: Test Case'i gherkin language ile yazınız.
+//1)
+-----------------------------
+
+
+/*2)
+    Given
+        https://automationexercise.com/api/productsList
+    When
+        User sends Get request
+    Then
+        Assert that number of "Women" usertype is 12
+        (Kadın usertype sayısının 12 olduğunu doğrulayın)
+
+    Not: Yazdırmayı jsonPath kullanarak yapınız: response.jsonPath().prettyPrint();
+
 */
