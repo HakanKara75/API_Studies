@@ -13,7 +13,7 @@ public class ReqresBaseUrl {
         spec =new RequestSpecBuilder()
                 .setContentType(ContentType.JSON)
                 .setAccept(ContentType.JSON)
-                .setBaseUri("https://reqres.in/api").build();
+                .setBaseUri("https://petstore.swagger.io/v2").build();
 
 
     }
