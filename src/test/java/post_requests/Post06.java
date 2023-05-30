@@ -8,8 +8,7 @@ import pojo.BookingResponsePojo;
 import pojo.HerOkuPojo;
 
 import static io.restassured.RestAssured.given;
-import static org.testng.AssertJUnit.assertEquals;
-import static org.testng.AssertJUnit.assertTrue;
+import static org.testng.AssertJUnit.*;
 
 public class Post06 extends ReqresBaseUrl {
     /*
@@ -43,7 +42,7 @@ public class Post06 extends ReqresBaseUrl {
         System.out.println("herOkuPojo.toString() = " + herOkuPojo.toString());
 
         //send request and get the response
-        Response response = given(spec).body(herOkuPojo).post("{/first}");
+        Response response = given(spec).body(herOkuPojo).post("/{first}");
         response.jsonPath().prettyPrint();
 
         //do assertion
@@ -72,7 +71,7 @@ public class Post06 extends ReqresBaseUrl {
         HerOkuPojo herOkuPojo=new HerOkuPojo("Hakan", "Kara", 200, true, bookingDatesPojo,"Ankara simidi");
 
         //send request and get the response
-        Response response=given(spec).body(herOkuPojo).post("{/first}");
+        Response response=given(spec).post("{/first}");
         response.jsonPath().prettyPrint();
 
         //do assert
@@ -87,7 +86,26 @@ public class Post06 extends ReqresBaseUrl {
         assertEquals(herOkuPojo.getAdditionalneeds(), bookingDatesPojo1.getBooking().getAdditionalneeds());
         assertEquals(herOkuPojo.getBookingDatesPojo().getCheckin(), bookingDatesPojo1.getBooking().getBookingDatesPojo().getCheckin());
         assertEquals(herOkuPojo.getBookingDatesPojo().getCheckin(), bookingDatesPojo1.getBooking().getBookingDatesPojo().getCheckin());
+    }
 
+    @Test
+    public void test3() {
+        //set the url
+        spec.pathParam("first", "booking");
+
+        // set the data
+        BookingDatesPojo bookingDatesPojo=new BookingDatesPojo("2024-01-01","2024-01-11");
+        HerOkuPojo herOkuPojo=new HerOkuPojo("Hakan", "Kara", 200, true, bookingDatesPojo,"Ankara simidi");
+
+        //send request and get the response
+        Response response=given(spec).delete("{/first}");
+        response.jsonPath().prettyPrint();
+
+        //do assert
+        BookingResponsePojo bookingDatesPojo2= response.as(BookingResponsePojo.class);
+        assertEquals(201, response.getStatusCode());
+
+        assertNull(herOkuPojo.getFirstname(),bookingDatesPojo2.getBooking().getFirstname());
 
 
     }
