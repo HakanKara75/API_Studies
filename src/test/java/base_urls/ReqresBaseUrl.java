@@ -13,7 +13,7 @@ public class ReqresBaseUrl {
         spec =new RequestSpecBuilder()
                 .setContentType(ContentType.JSON)
                 .setAccept(ContentType.JSON)
-                .setBaseUri("https://petstore.swagger.io/v2/pet/findByStatus?status=available").build();
+                .setBaseUri("https://restful-booker.herokuapp.com").build();
 
 
     }

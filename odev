@@ -1,16 +1,19 @@
-//1)
------------------------------
 
 
-/*2)
-    Given
-        https://automationexercise.com/api/productsList
-    When
-        User sends Get request
-    Then
-        Assert that number of "Women" usertype is 12
-        (Kadın usertype sayısının 12 olduğunu doğrulayın)
+/*
+   "https://restful-booker.herokuapp.com/apidoc/index.html" dökümanını kullanarak;
 
-    Not: Yazdırmayı jsonPath kullanarak yapınız: response.jsonPath().prettyPrint();
+    Bir booking oluşturan, o booking'i güncelleyen ve sonra silen ve bu adımları doğrulayan
+    positif ve negatif testler içeren bir otomasyon testi yazınız.
+    {
+        "firstname" : "Hakan",
+        "lastname" : "Kara",
+        "totalprice" : 111,
+        "depositpaid" : true,
+        "bookingdates" : {
+            "checkin" : "2018-01-01",
+            "checkout" : "2019-01-01"
+        },
+        "additionalneeds" : "tereyag bal"}
 
 */
