@@ -1,4 +1,4 @@
-package homework.get2;
+package put_requests;
 
 import base_urls.JsonPlaceHolderBaseUrl;
 import io.restassured.http.ContentType;
