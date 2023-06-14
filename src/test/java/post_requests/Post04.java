@@ -3,7 +3,7 @@ package post_requests;
 import base_urls.ReqresBaseUrl;
 import io.restassured.response.Response;
 import org.junit.Test;
-import pojo.ReqresPojo;
+import pojos.ReqresPojo;
 
 import java.util.HashMap;
 import java.util.Map;

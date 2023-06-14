@@ -1,4 +1,4 @@
-package pojo;
+package pojos;
 
 public class HerOkuPojo {
     private String firstname;

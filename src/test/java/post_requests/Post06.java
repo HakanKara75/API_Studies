@@ -3,9 +3,9 @@ package post_requests;
 import base_urls.ReqresBaseUrl;
 import io.restassured.response.Response;
 import org.junit.Test;
-import pojo.BookingDatesPojo;
-import pojo.BookingResponsePojo;
-import pojo.HerOkuPojo;
+import pojos.BookingDatesPojo;
+import pojos.BookingResponsePojo;
+import pojos.HerOkuPojo;
 
 import static io.restassured.RestAssured.given;
 import static org.testng.AssertJUnit.*;
