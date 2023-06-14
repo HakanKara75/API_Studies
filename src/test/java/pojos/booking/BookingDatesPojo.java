@@ -6,10 +6,13 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+/*
+org.projectlombok dependency pom.xml eklenince pojo class'a sadece variable'lar yazilir. Asagidaki 3 anotation
+getter, setter, constructor ve toString method'larin yazilmasina ihtiyac birakmaz.
+ */
 @Data
-//@NoArgsConstructor
-//@AllArgsConstructor
-@JsonIgnoreProperties(ignoreUnknown = true)
+@NoArgsConstructor
+@AllArgsConstructor
 public class BookingDatesPojo {
     /*
      "bookingdates": {
@@ -21,35 +24,5 @@ public class BookingDatesPojo {
     private String checkin;
     private String checkout;
 
-    public String getCheckin() {
-        return checkin;
-    }
 
-    public void setCheckin(String checkin) {
-        this.checkin = checkin;
-    }
-
-    public String getCheckout() {
-        return checkout;
-    }
-
-    public void setCheckout(String checkout) {
-        this.checkout = checkout;
-    }
-
-    public BookingDatesPojo() {
-    }
-
-    public BookingDatesPojo(String checkin, String checkout) {
-        this.checkin = checkin;
-        this.checkout = checkout;
-    }
-
-    @Override
-    public String toString() {
-        return "BookingDatesPojo{" +
-                "checkin='" + checkin + '\'' +
-                ", checkout='" + checkout + '\'' +
-                '}';
-    }
 }

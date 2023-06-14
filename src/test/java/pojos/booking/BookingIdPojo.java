@@ -1,38 +1,19 @@
 package pojos.booking;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+/*
+org.projectlombok dependency pom.xml eklenince pojo class'a sadece variable'lar yazilir. Asagidaki 3 anotation
+getter, setter, constructor ve toString method'larin yazilmasina ihtiyac birakmaz.
+ */
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class BookingIdPojo {
     private int bookingid;
     private BookingPojo booking;
 
-    public int getBookingid() {
-        return bookingid;
-    }
 
-    public void setBookingid(int bookingid) {
-        this.bookingid = bookingid;
-    }
-
-    public BookingPojo getBooking() {
-        return booking;
-    }
-
-    public void setBooking(BookingPojo booking) {
-        this.booking = booking;
-    }
-
-    public BookingIdPojo() {
-    }
-
-    public BookingIdPojo(int bookingid, BookingPojo booking) {
-        this.bookingid = bookingid;
-        this.booking = booking;
-    }
-
-    @Override
-    public String toString() {
-        return "BookingIdPojo{" +
-                "bookingid=" + bookingid +
-                ", booking=" + booking +
-                '}';
-    }
 }
